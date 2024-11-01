@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","lobbying data/Top.Spenders","Ranked Sectors.csv","Top Issues.csv","Top Spenders.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1546,8 +1546,105 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="project-thoughts">Project thoughts</h2>
 <p>I am interested in exploring data related to lobbying and how much certain fields/companies spend in lobbying. I believe it would be fascinating to see who/what companies have political influence. By analyzing this data, we will also be able to see what politicians support what companies/industries.</p>
 <h2 id="project-paragraph">Project Paragraph</h2>
-<p>My research question is how does the amount of money companies spend on lobbying affect the voting behavior of politicians on legislative decisions that impact those industries? My hypothesis is the more money a company or industry spends on lobbying, the more likely politicians are to support legislation that favors the industry’s interests. This hypothesis is rooted in the theory of political influence, where financial contributions by lobbying act as a means for industries to gain access and influence over politicians that make decisions. The independent variable is the amount of money spent on lobbying by companies, which can be measured in dollars. I can find data that tells me lobbying expenditures by industry and company over time. The dependent variable is the voting behavior of politicians, specifically how often they vote in favor of legislation that aligns with the interests of the lobbying industry/company. I can find data that measures the percentage of supportive votes based on data that is publicly available legislative records. If the data shows that as lobbying expenditures increase, the likelihood of favorable voting behavior by politicians also increases, this would support my hypothesis. Counter to that, if there is no systematic relationship or if increased lobbying leads to fewer favorable votes, this would disprove my hypothesis.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>My research question is: How does the amount of money spent by companies on lobbying influence the concentration of lobbying expenditures within specific industries? I hypothesize that industries with high regulatory stakes such as health, finance, and energy will have a greater concentration of lobbying expenditures among a few top companies than less regulated ones. This hypothesis is rooted in the theory of political influence, suggesting that companies within highly regulated industries have a strong incentive to invest disproportionately in lobbying to secure favorable policy outcomes. The institutional structure of these industries often creates a high-stakes environment where policy changes can significantly impact profitability, driving a concentration of lobbying efforts within top firms. The independent variable is the amount of money spent on lobbying by companies, which can be measured in dollars. I have data that provides lobbying expenditures by industry and company over time, allowing me to observe variations in spending across different companies and sectors. The dependent variable is the concentration of lobbying expenditures within each industry, measured as the proportion of total lobbying spending accounted for by the top companies in that industry. This variable can be calculated by identifying the percentage of total lobbying dollars spent by the top companies in each industry. If the data shows that a small number of companies within highly regulated industries account for a large portion of total lobbying expenditures, this would support my hypothesis that these industries have a more concentrated lobbying effort driven by high stakes. Conversely, if lobbying expenditures are spread more evenly across companies within highly regulated industries, or if non-regulated industries show similar concentration patterns, this would counter my hypothesis, suggesting that regulatory stakes do not drive concentrated lobbying.</p>
+<h2 id="project-data-visualization">Project Data Visualization</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://yihui.org/knitr/'>knitr</a></span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;/Users/landonjohnson/PS270 Final Project&quot;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>top_spenders</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Top Spenders.csv"</span><span class='op'>)</span></span>
+<span><span class='va'>ranked_sectors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Ranked Sectors.csv"</span><span class='op'>)</span></span>
+<span><span class='va'>top_issues</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Top Issues.csv"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>top_spenders</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>                                     Lobbying.Client Total.Spent
+1                          National Assn of Realtors   $63500153
+2                             US Chamber of Commerce   $53400000
+3 Pharmaceutical Research &amp; Manufacturers of America   $23975000
+4                             American Hospital Assn   $21293606
+5                             Blue Cross/Blue Shield   $20870225
+6            American Fuel &amp; Petrochem Manufacturers   $19040000</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>ranked_sectors</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>                 Sector      Total
+1                Health $562332190
+2 Finance/Insur/RealEst $473324256
+3  Communic/Electronics $439463345
+4         Misc Business $430486529
+5   Energy/Nat Resource $315731855
+6                 Other $250552673</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>top_issues</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>                        Issue No..of.Clients. No..of.Lobbyists.
+1 Fed Budget &amp; Appropriations            4653              5056
+2               Health Issues            2399              4005
+3                     Defense            2049              2693
+4                       Taxes            1934              4376
+5              Transportation            1588              2467
+6      Energy &amp; Nuclear Power            1310              2552</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>top_spenders</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;Lobbying.Client&quot; &quot;Total.Spent&quot;    </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>ranked_sectors</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;Sector&quot; &quot;Total&quot; </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>top_spenders</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;Lobbying.Client&quot; &quot;Total.Spent&quot;    </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ranked_sectors</span><span class='op'>$</span><span class='va'>Total</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>"[$,]"</span>, <span class='st'>""</span>, <span class='va'>ranked_sectors</span><span class='op'>$</span><span class='va'>Total</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>ranked_sectors</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>Sector</span>, <span class='op'>-</span><span class='va'>Total</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='va'>Total</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill <span class='op'>=</span> <span class='st'>"steelblue"</span>, color <span class='op'>=</span> <span class='st'>"black"</span>, width <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_number.html'>label_number</a></span><span class='op'>(</span>scale <span class='op'>=</span> <span class='fl'>1e-6</span>, suffix <span class='op'>=</span> <span class='st'>"M"</span><span class='op'>)</span>,  </span>
+<span>                     expand <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/expansion.html'>expansion</a></span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Distribution of Total Lobbying Expenditures by Sector"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"Sector"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Total Expenditure ($ Millions)"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    axis.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>45</span>, hjust <span class='op'>=</span> <span class='fl'>1</span>, size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>    axis.title.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>,</span>
+<span>    axis.title.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>,</span>
+<span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.5</span>, size <span class='op'>=</span> <span class='fl'>16</span>, face <span class='op'>=</span> <span class='st'>"bold"</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>b <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_line</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"grey80"</span><span class='op'>)</span>, </span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span> </span>
+<span>  <span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

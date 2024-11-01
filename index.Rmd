@@ -61,16 +61,15 @@ colnames(top_spenders)
 ```
 
 
-
+```{r}
+ranked_sectors$Total <- as.numeric(gsub("[$,]", "", ranked_sectors$Total))
+```
 
 ```{r}
-
-
-
 ggplot(data = ranked_sectors, aes(x = reorder(Sector, -Total), y = Total)) +
   geom_bar(stat = "identity", fill = "steelblue", color = "black", width = 0.7) +
-  scale_y_continuous(labels = scales::label_number(scale = 1e-6, suffix = "M"), 
-                     expand = expansion(mult = c(0, 0.1))) + 
+  scale_y_continuous(labels = scales::label_number(scale = 1e-6, suffix = "M"),  
+                     expand = expansion(mult = c(0, 0.1))) +  
   labs(
     title = "Distribution of Total Lobbying Expenditures by Sector",
     x = "Sector",
@@ -82,11 +81,11 @@ ggplot(data = ranked_sectors, aes(x = reorder(Sector, -Total), y = Total)) +
     axis.title.x = element_text(size = 12, face = "bold"),
     axis.title.y = element_text(size = 12, face = "bold"),
     plot.title = element_text(hjust = 0.5, size = 16, face = "bold", margin = margin(b = 15)),
-    panel.grid.major.y = element_line(color = "grey80"),
-    panel.grid.minor.y = element_blank()  
+    panel.grid.major.y = element_line(color = "grey80"), 
+    panel.grid.minor.y = element_blank() 
   )
-
 ```
+
 
 
 
