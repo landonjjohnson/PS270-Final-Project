@@ -17,5 +17,78 @@ I am interested in exploring data related to lobbying and how much certain field
 
 
 ## Project Paragraph
+My research question is: How does the amount of money spent by companies on lobbying influence the concentration of lobbying expenditures within specific industries? I hypothesize that industries with high regulatory stakes such as health, finance, and energy will have a greater concentration of lobbying expenditures among a few top companies than less regulated ones. This hypothesis is rooted in the theory of political influence, suggesting that companies within highly regulated industries have a strong incentive to invest disproportionately in lobbying to secure favorable policy outcomes. The institutional structure of these industries often creates a high-stakes environment where policy changes can significantly impact profitability, driving a concentration of lobbying efforts within top firms. The independent variable is the amount of money spent on lobbying by companies, which can be measured in dollars. I have data that provides lobbying expenditures by industry and company over time, allowing me to observe variations in spending across different companies and sectors. The dependent variable is the concentration of lobbying expenditures within each industry, measured as the proportion of total lobbying spending accounted for by the top companies in that industry. This variable can be calculated by identifying the percentage of total lobbying dollars spent by the top companies in each industry. If the data shows that a small number of companies within highly regulated industries account for a large portion of total lobbying expenditures, this would support my hypothesis that these industries have a more concentrated lobbying effort driven by high stakes. Conversely, if lobbying expenditures are spread more evenly across companies within highly regulated industries, or if non-regulated industries show similar concentration patterns, this would counter my hypothesis, suggesting that regulatory stakes do not drive concentrated lobbying.
 
-My research question is how does the amount of money companies spend on lobbying affect the voting behavior of politicians on legislative decisions that impact those industries? My hypothesis is the more money a company or industry spends on lobbying, the more likely politicians are to support legislation that favors the industry’s interests. This hypothesis is rooted in the theory of political influence, where financial contributions by lobbying act as a means for industries to gain access and influence over politicians that make decisions. The independent variable is the amount of money spent on lobbying by companies, which can be measured in dollars. I can find data that tells me lobbying expenditures by industry and company over time. The dependent variable is the voting behavior of politicians, specifically how often they vote in favor of legislation that aligns with the interests of the lobbying industry/company. I can find data that measures the percentage of supportive votes based on data that is publicly available legislative records. If the data shows that as lobbying expenditures increase, the likelihood of favorable voting behavior by politicians also increases, this would support my hypothesis. Counter to that, if there is no systematic relationship or if increased lobbying leads to fewer favorable votes, this would disprove my hypothesis.
+
+## Project Data Visualization 
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(knitr)
+```
+
+
+
+```{r}
+getwd()
+```
+
+```{r}
+top_spenders <- read.csv("Top Spenders.csv")
+ranked_sectors <- read.csv("Ranked Sectors.csv")
+top_issues <- read.csv("Top Issues.csv")
+```
+
+```{r}
+head(top_spenders)
+head(ranked_sectors)
+head(top_issues)
+```
+
+
+```{r}
+colnames(top_spenders)
+```
+
+
+
+
+
+```{r}
+colnames(ranked_sectors)
+colnames(top_spenders)
+```
+
+
+
+
+```{r}
+
+
+
+ggplot(data = ranked_sectors, aes(x = reorder(Sector, -Total), y = Total)) +
+  geom_bar(stat = "identity", fill = "steelblue", color = "black", width = 0.7) +
+  scale_y_continuous(labels = scales::label_number(scale = 1e-6, suffix = "M"), 
+                     expand = expansion(mult = c(0, 0.1))) + 
+  labs(
+    title = "Distribution of Total Lobbying Expenditures by Sector",
+    x = "Sector",
+    y = "Total Expenditure ($ Millions)"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+    axis.title.x = element_text(size = 12, face = "bold"),
+    axis.title.y = element_text(size = 12, face = "bold"),
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold", margin = margin(b = 15)),
+    panel.grid.major.y = element_line(color = "grey80"),
+    panel.grid.minor.y = element_blank()  
+  )
+
+```
+
+
+
+
+
