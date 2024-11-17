@@ -86,8 +86,46 @@ ggplot(data = ranked_sectors, aes(x = reorder(Sector, -Total), y = Total)) +
   )
 ```
 
+## Data Visualization and Analysis
 
 
+
+
+```{r}
+
+ranked_sectors$Total_Millions <- ranked_sectors$Total / 1e6
+
+ranked_sectors[order(-ranked_sectors$Total_Millions), c("Sector", "Total_Millions")]
+
+```
+
+         
+      
+```{r}
+library(knitr)
+
+final_table <- data.frame(
+  Sector = c(
+    "Communic/Electronics",
+    "Energy/Nat Resource",
+    "Finance/Insur/RealEst",
+    "Health",
+    "Misc Business"),
+  Top_Spender = c(
+    "NCTA - The Internet & Television Assn",
+    "American Petroleum Institute",
+    "National Assn of Realtors",
+    "Pharmaceutical Research & Manufacturers",
+    "U.S. Chamber of Commerce"),
+  Total_Sector_Expenditure_M = c(439.46, 315.73, 473.32, 562.33, 430.49),
+  Top_Spender_Contribution = c(5.46, 6.61, 11.28, 11.29, 4.95))
+
+kable(final_table, format = "html", col.names = c(
+  "Sector", "Top Spender", "Total Sector Expenditure ($M)", "Top Spender Contribution (%)"
+), align = "c")
+
+```
+The chart and table collectively provide important insights into how lobbying expenditures influence legislative outcomes, helping to address the research question: How does the amount of money companies spend on lobbying affect the voting behavior of politicians on legislative decisions that impact those industries? The bar chart reveals the concentration of lobbying expenditures by sector, highlighting that the Health and Finance/Insurance/Real Estate sectors dominate, with totals exceeding $500 million each. These industries, being highly regulated, are likely focusing their lobbying efforts on shaping policies directly affecting their operations. Complementing the chart, the table identifies the top spenders within these sectors, such as Pharmaceutical Research & Manufacturers, which contributes 11.29% of lobbying expenditures in the Health sector, and the National Assn of Realtors, responsible for 11.28% in Finance/Insurance/Real Estate. These data points underscore the dominance of a few organizations within their respective sectors, suggesting that companies investing heavily in lobbying are more likely to influence legislative decisions. While the chart and table do not directly measure voting behavior, they imply that industries spending the most on lobbying gain greater access to policymakers and likely influence legislative priorities. The findings suggest that financial investment in lobbying correlates with significant political influence, aligning with the hypothesis that industries with higher lobbying expenditures are more successful in shaping legislative outcomes in their favor.
 
 
 

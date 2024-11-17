@@ -1644,7 +1644,145 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="data-visualization-and-analysis">Data Visualization and Analysis</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ranked_sectors</span><span class='op'>$</span><span class='va'>Total_Millions</span> <span class='op'>&lt;-</span> <span class='va'>ranked_sectors</span><span class='op'>$</span><span class='va'>Total</span> <span class='op'>/</span> <span class='fl'>1e6</span></span>
+<span></span>
+<span><span class='va'>ranked_sectors</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>ranked_sectors</span><span class='op'>$</span><span class='va'>Total_Millions</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Sector"</span>, <span class='st'>"Total_Millions"</span><span class='op'>)</span><span class='op'>]</span></span></code></pre>
+</div>
+<pre><code>                  Sector Total_Millions
+1                 Health       562.3322
+2  Finance/Insur/RealEst       473.3243
+3   Communic/Electronics       439.4633
+4          Misc Business       430.4865
+5    Energy/Nat Resource       315.7319
+6                  Other       250.5527
+7         Transportation       231.4429
+8  Ideology/Single-Issue       157.2810
+9           Agribusiness       130.5883
+10               Defense       110.8338
+11          Construction        46.3688
+12                 Labor        38.8567
+13   Lawyers &amp; Lobbyists        13.1548</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://yihui.org/knitr/'>knitr</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>final_table</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
+<span>  Sector <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"Communic/Electronics"</span>,</span>
+<span>    <span class='st'>"Energy/Nat Resource"</span>,</span>
+<span>    <span class='st'>"Finance/Insur/RealEst"</span>,</span>
+<span>    <span class='st'>"Health"</span>,</span>
+<span>    <span class='st'>"Misc Business"</span><span class='op'>)</span>,</span>
+<span>  Top_Spender <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"NCTA - The Internet &amp; Television Assn"</span>,</span>
+<span>    <span class='st'>"American Petroleum Institute"</span>,</span>
+<span>    <span class='st'>"National Assn of Realtors"</span>,</span>
+<span>    <span class='st'>"Pharmaceutical Research &amp; Manufacturers"</span>,</span>
+<span>    <span class='st'>"U.S. Chamber of Commerce"</span><span class='op'>)</span>,</span>
+<span>  Total_Sector_Expenditure_M <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>439.46</span>, <span class='fl'>315.73</span>, <span class='fl'>473.32</span>, <span class='fl'>562.33</span>, <span class='fl'>430.49</span><span class='op'>)</span>,</span>
+<span>  Top_Spender_Contribution <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5.46</span>, <span class='fl'>6.61</span>, <span class='fl'>11.28</span>, <span class='fl'>11.29</span>, <span class='fl'>4.95</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>final_table</span>, format <span class='op'>=</span> <span class='st'>"html"</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>  <span class='st'>"Sector"</span>, <span class='st'>"Top Spender"</span>, <span class='st'>"Total Sector Expenditure ($M)"</span>, <span class='st'>"Top Spender Contribution (%)"</span></span>
+<span><span class='op'>)</span>, align <span class='op'>=</span> <span class='st'>"c"</span><span class='op'>)</span></span></code></pre>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Sector
+</th>
+<th style="text-align:center;">
+Top Spender
+</th>
+<th style="text-align:center;">
+Total Sector Expenditure ($M)
+</th>
+<th style="text-align:center;">
+Top Spender Contribution (%)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Communic/Electronics
+</td>
+<td style="text-align:center;">
+NCTA - The Internet &amp; Television Assn
+</td>
+<td style="text-align:center;">
+439.46
+</td>
+<td style="text-align:center;">
+5.46
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Energy/Nat Resource
+</td>
+<td style="text-align:center;">
+American Petroleum Institute
+</td>
+<td style="text-align:center;">
+315.73
+</td>
+<td style="text-align:center;">
+6.61
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Finance/Insur/RealEst
+</td>
+<td style="text-align:center;">
+National Assn of Realtors
+</td>
+<td style="text-align:center;">
+473.32
+</td>
+<td style="text-align:center;">
+11.28
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Health
+</td>
+<td style="text-align:center;">
+Pharmaceutical Research &amp; Manufacturers
+</td>
+<td style="text-align:center;">
+562.33
+</td>
+<td style="text-align:center;">
+11.29
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Misc Business
+</td>
+<td style="text-align:center;">
+U.S. Chamber of Commerce
+</td>
+<td style="text-align:center;">
+430.49
+</td>
+<td style="text-align:center;">
+4.95
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The chart and table collectively provide important insights into how lobbying expenditures influence legislative outcomes, helping to address the research question: How does the amount of money companies spend on lobbying affect the voting behavior of politicians on legislative decisions that impact those industries? The bar chart reveals the concentration of lobbying expenditures by sector, highlighting that the Health and Finance/Insurance/Real Estate sectors dominate, with totals exceeding $500 million each. These industries, being highly regulated, are likely focusing their lobbying efforts on shaping policies directly affecting their operations. Complementing the chart, the table identifies the top spenders within these sectors, such as Pharmaceutical Research &amp; Manufacturers, which contributes 11.29% of lobbying expenditures in the Health sector, and the National Assn of Realtors, responsible for 11.28% in Finance/Insurance/Real Estate. These data points underscore the dominance of a few organizations within their respective sectors, suggesting that companies investing heavily in lobbying are more likely to influence legislative decisions. While the chart and table do not directly measure voting behavior, they imply that industries spending the most on lobbying gain greater access to policymakers and likely influence legislative priorities. The findings suggest that financial investment in lobbying correlates with significant political influence, aligning with the hypothesis that industries with higher lobbying expenditures are more successful in shaping legislative outcomes in their favor.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
