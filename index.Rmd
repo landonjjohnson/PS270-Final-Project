@@ -148,7 +148,6 @@ As shown in the table, the health sector not only has the highest total expendit
 
 ## Results
 ```{r}
-# Visualize the proportion of total expenditure by top spenders
 ggplot(data = final_table, aes(x = reorder(Sector, -Total_Sector_Expenditure_M), y = Top_Spender_Contribution)) +
   geom_bar(stat = "identity", fill = "darkgreen", color = "black", width = 0.7) +
   labs(
@@ -168,22 +167,17 @@ ggplot(data = final_table, aes(x = reorder(Sector, -Total_Sector_Expenditure_M),
 
 ```
 ```{r}
-# Add example data for a regression
 ranked_sectors$Regulation_Intensity <- c(5, 4, 3, 5, 4, 2, 3, 2, 3, 4, 1, 1, 1)
 
-# Perform regression analysis
 fit <- lm(Total ~ Regulation_Intensity, data = ranked_sectors)
 
-# Summarize regression results
 library(broom)
 fit_summary <- tidy(fit)
 
 library(modelsummary)
 
-# Perform regression analysis
 fit <- lm(Total ~ Regulation_Intensity, data = ranked_sectors)
 
-# Display regression results using modelsummary
 modelsummary(
   fit,
   statistic = c("s.e. = {std.error}", "p = {p.value}"),
