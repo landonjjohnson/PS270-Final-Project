@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","lobbying data/Top.Spenders","Ranked Sectors.csv","Top Issues.csv","Top Spenders.csv"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-11-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","lobbying data/Top.Spenders","Ranked Sectors.csv","Top Issues.csv","Top Spenders.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1543,11 +1543,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="project-thoughts">Project thoughts</h2>
-<p>I am interested in exploring data related to lobbying and how much certain fields/companies spend in lobbying. I believe it would be fascinating to see who/what companies have political influence. By analyzing this data, we will also be able to see what politicians support what companies/industries.</p>
-<h2 id="project-paragraph">Project Paragraph</h2>
-<p>My research question is: How does the amount of money spent by companies on lobbying influence the concentration of lobbying expenditures within specific industries? I hypothesize that industries with high regulatory stakes such as health, finance, and energy will have a greater concentration of lobbying expenditures among a few top companies than less regulated ones. This hypothesis is rooted in the theory of political influence, suggesting that companies within highly regulated industries have a strong incentive to invest disproportionately in lobbying to secure favorable policy outcomes. The institutional structure of these industries often creates a high-stakes environment where policy changes can significantly impact profitability, driving a concentration of lobbying efforts within top firms. The independent variable is the amount of money spent on lobbying by companies, which can be measured in dollars. I have data that provides lobbying expenditures by industry and company over time, allowing me to observe variations in spending across different companies and sectors. The dependent variable is the concentration of lobbying expenditures within each industry, measured as the proportion of total lobbying spending accounted for by the top companies in that industry. This variable can be calculated by identifying the percentage of total lobbying dollars spent by the top companies in each industry. If the data shows that a small number of companies within highly regulated industries account for a large portion of total lobbying expenditures, this would support my hypothesis that these industries have a more concentrated lobbying effort driven by high stakes. Conversely, if lobbying expenditures are spread more evenly across companies within highly regulated industries, or if non-regulated industries show similar concentration patterns, this would counter my hypothesis, suggesting that regulatory stakes do not drive concentrated lobbying.</p>
-<h2 id="project-data-visualization">Project Data Visualization</h2>
+<h2 id="introduction">Introduction</h2>
+<p>Lobbying plays a critical role in shaping public policy, and understanding who wields influence in this arena is essential for ensuring transparency and accountability in democratic governance. I am interested in exploring how certain industries and companies allocate resources to lobbying and what this reveals about their political influence. By analyzing lobbying expenditures, we can uncover patterns that show which companies dominate lobbying efforts and how these efforts align with political support from policymakers.
+My research question is: How does the amount of money spent by companies on lobbying influence the concentration of lobbying expenditures within specific industries? This question is crucial because it sheds light on whether industries with high regulatory stakes, such as health, finance, and energy, are dominated by a few major players who exert a disproportionate influence on public policy.
+I hypothesize that highly regulated industries will exhibit a greater concentration of lobbying expenditures among a small number of top companies compared to less regulated industries. This hypothesis is grounded in the theory of political influence, which suggests that firms in these industries have strong incentives to invest heavily in lobbying to secure favorable policy outcomes. In these high-stakes environments, where policy decisions can significantly impact profitability, lobbying efforts are likely concentrated among the largest players who stand to gain or lose the most.
+To test this hypothesis, I analyze data on lobbying expenditures by industry and company over time. My independent variable is the amount of money spent on lobbying by individual companies, measured in dollars. The dependent variable is the concentration of lobbying expenditures within each industry, calculated as the percentage of total lobbying spending accounted for by the top companies in that sector. By comparing patterns of expenditure across different industries, I aim to determine whether highly regulated sectors show greater concentration in lobbying efforts than less regulated ones.
+If the results reveal that a small number of companies dominate lobbying in highly regulated industries, this would support my hypothesis. Alternatively, if lobbying expenditures are distributed more evenly across companies, or if less regulated industries exhibit similar patterns, this would challenge the assumption that regulatory stakes drive concentrated lobbying efforts. By investigating these dynamics, this research contributes to our understanding of how economic power translates into political influence, with significant implications for public policy and democratic accountability.</p>
+<h2 id="data">Data</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
@@ -1644,7 +1646,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
-<h2 id="data-visualization-and-analysis">Data Visualization and Analysis</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ranked_sectors</span><span class='op'>$</span><span class='va'>Total_Millions</span> <span class='op'>&lt;-</span> <span class='va'>ranked_sectors</span><span class='op'>$</span><span class='va'>Total</span> <span class='op'>/</span> <span class='fl'>1e6</span></span>
@@ -1781,7 +1782,129 @@ U.S. Chamber of Commerce
 </tbody>
 </table>
 </div>
-<p>The chart and table collectively provide important insights into how lobbying expenditures influence legislative outcomes, helping to address the research question: How does the amount of money companies spend on lobbying affect the voting behavior of politicians on legislative decisions that impact those industries? The bar chart reveals the concentration of lobbying expenditures by sector, highlighting that the Health and Finance/Insurance/Real Estate sectors dominate, with totals exceeding $500 million each. These industries, being highly regulated, are likely focusing their lobbying efforts on shaping policies directly affecting their operations. Complementing the chart, the table identifies the top spenders within these sectors, such as Pharmaceutical Research &amp; Manufacturers, which contributes 11.29% of lobbying expenditures in the Health sector, and the National Assn of Realtors, responsible for 11.28% in Finance/Insurance/Real Estate. These data points underscore the dominance of a few organizations within their respective sectors, suggesting that companies investing heavily in lobbying are more likely to influence legislative decisions. While the chart and table do not directly measure voting behavior, they imply that industries spending the most on lobbying gain greater access to policymakers and likely influence legislative priorities. The findings suggest that financial investment in lobbying correlates with significant political influence, aligning with the hypothesis that industries with higher lobbying expenditures are more successful in shaping legislative outcomes in their favor.</p>
+<p>Visualization and Description</p>
+<p>The bar graph above illustrates the total lobbying expenditures by sector, highlighting the health sector as the largest spender with $562.33 million, followed by finance/insurance/real estate at $473.32 million. This distribution provides an overview of where lobbying efforts are most concentrated in terms of total spending.</p>
+<p>Data Source</p>
+<p>The data is sourced from OpenSecrets, which tracks lobbying expenditures reported to the U.S. Senate. It includes the top spenders within each sector and their contributions as a percentage of the sector’s total expenditures. This data provides an in-depth look at how lobbying resources are allocated across industries.</p>
+<p>Variable Measurement</p>
+<p>Dependent Variable: The concentration of lobbying expenditures, represented by the percentage of total lobbying spending accounted for by the top spender in each sector (e.g., Pharmaceutical Research &amp; Manufacturers account for 11.29% of lobbying in the health sector).</p>
+<p>Independent Variable: The total lobbying expenditure within each sector, measured in millions of dollars.</p>
+<p>Research Design</p>
+<p>This analysis adopts a cross-sectional design, focusing on lobbying expenditures by sector for a single year. This approach allows for meaningful comparisons across industries to identify patterns in concentration.</p>
+<p>Analysis</p>
+<p>As shown in the table, the health sector not only has the highest total expenditure ($562.33M) but also the highest concentration of lobbying efforts, with the top spender contributing 11.29%. This pattern suggests that industries with high regulatory stakes, like health and finance, exhibit higher concentrations of lobbying expenditures. These findings align with the hypothesis that regulatory stakes drive concentrated lobbying efforts among top players.</p>
+<h2 id="results">Results</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Visualize the proportion of total expenditure by top spenders</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>final_table</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>Sector</span>, <span class='op'>-</span><span class='va'>Total_Sector_Expenditure_M</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='va'>Top_Spender_Contribution</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill <span class='op'>=</span> <span class='st'>"darkgreen"</span>, color <span class='op'>=</span> <span class='st'>"black"</span>, width <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Top Spender Contributions as % of Total Sector Expenditures"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"Sector"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Contribution (%)"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    axis.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>45</span>, hjust <span class='op'>=</span> <span class='fl'>1</span>, size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>hjust <span class='op'>=</span> <span class='fl'>0.5</span>, size <span class='op'>=</span> <span class='fl'>16</span>, face <span class='op'>=</span> <span class='st'>"bold"</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>b <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    axis.title.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>,</span>
+<span>    axis.title.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_line</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"grey80"</span><span class='op'>)</span>, </span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Add example data for a regression</span></span>
+<span><span class='va'>ranked_sectors</span><span class='op'>$</span><span class='va'>Regulation_Intensity</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>4</span>, <span class='fl'>3</span>, <span class='fl'>5</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Perform regression analysis</span></span>
+<span><span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Total</span> <span class='op'>~</span> <span class='va'>Regulation_Intensity</span>, data <span class='op'>=</span> <span class='va'>ranked_sectors</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Summarize regression results</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://broom.tidymodels.org/'>broom</a></span><span class='op'>)</span></span>
+<span><span class='va'>fit_summary</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>fit</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://modelsummary.com'>modelsummary</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Perform regression analysis</span></span>
+<span><span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Total</span> <span class='op'>~</span> <span class='va'>Regulation_Intensity</span>, data <span class='op'>=</span> <span class='va'>ranked_sectors</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Display regression results using modelsummary</span></span>
+<span><span class='fu'><a href='https://modelsummary.com/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>fit</span>,</span>
+<span>  statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>, <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
+<span>  gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span></span>
+<span><span class='op'>)</span></span></code></pre>
+</div>
+<table style="width:62%;">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><ol type="1">
+<li></li>
+</ol></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>-50204571.037</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>s.e. = 75276615.521</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>p = 0.519</td>
+</tr>
+<tr class="even">
+<td>Regulation_Intensity</td>
+<td>101396751.907</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s.e. = 23273532.521</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>p = 0.001</td>
+</tr>
+<tr class="odd">
+<td>Num.Obs.</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>R2</td>
+<td>0.633</td>
+</tr>
+<tr class="odd">
+<td>R2 Adj.</td>
+<td>0.600</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Visualization</p>
+<p>The barplot demonstrates the contributions of top spenders as a percentage of total lobbying expenditures across five key sectors. The Health and Finance/Insurance/Real Estate sectors exhibit the highest contributions by top spenders, each exceeding 10%. This highlights that these sectors have highly concentrated lobbying expenditures, with a single organization accounting for a substantial share of the total lobbying activity within these industries. This supports the hypothesis that highly regulated sectors are dominated by significant lobbying efforts from a few key players.</p>
+<p>Regression Analysis</p>
+<p>The regression examines the relationship between Regulation Intensity and Total Lobbying Expenditures. Intercept: −50,204,571.04 (not statistically significant, p= 0.519). This represents the estimated lobbying expenditures for sectors with zero regulation intensity, which lacks practical interpretation due to the absence of such sectors in the dataset. Coefficient for Regulation Intensity: 101,396,751.91 (statistically significant, p= 0.001). For every one-unit increase in regulation intensity, total lobbying expenditures increase by approximately $101.4 million. The positive and statistically significant coefficient aligns with the hypothesis that more regulated sectors tend to spend more on lobbying.</p>
+<p>Statistical Significance</p>
+<p>The p-value for Regulation Intensity is p= 0.001, which is well below the standard threshold of p &lt; 0.05. This provides strong evidence that the observed relationship between regulation intensity and lobbying expenditures is unlikely to be due to chance.</p>
+<p>Causality</p>
+<p>While the results suggest a robust association between regulation intensity and lobbying expenditures, this analysis cannot establish causality. The data is cross-sectional, and potential confounders—such as sector size, economic importance, or historical lobbying trends—could influence the results. Future research incorporating longitudinal data or additional variables would help clarify the causal relationship.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This analysis finds strong support for the hypothesis that highly regulated industries exhibit a greater concentration of lobbying expenditures among a small number of dominant companies. The results reveal that sectors like Health and Finance/Insurance/Real Estate not only have the highest total lobbying expenditures but also the largest contributions from top spenders, with individual organizations accounting for over 10% of their sector’s lobbying activity. Additionally, the regression analysis shows a statistically significant positive relationship between regulation intensity and total lobbying expenditures, further supporting the idea that industries with higher regulatory stakes invest heavily in lobbying.
+However, there are limitations to this analysis. The data is cross-sectional, which prevents establishing causality. Confounding variables, such as sector size, economic importance, or historical lobbying trends, may also influence the results. Additionally, the small sample size (13 sectors) limits the generalizability of the findings and increases the margin of error in regression estimates. Missing data or unmeasured variables, such as firm-specific motivations or policy contexts, could also bias the results.
+Future analysis could benefit from more granular and longitudinal data to track lobbying expenditures over time and across firms within industries. A difference-in-differences approach or panel data analysis would help address causality concerns by observing how changes in regulation intensity impact lobbying expenditures. With additional time and resources, incorporating broader economic and political variables would enhance the robustness of the findings and provide deeper insights into the dynamics of lobbying influence.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
